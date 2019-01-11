@@ -1,0 +1,41 @@
+# reference
+https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
+
+# basic
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+# add Docker’s official GPG key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.
+sudo apt-key fingerprint 0EBFCD88
+
+# set up the stable repository.
+sudo add-apt-repository   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update
+
+# install
+sudo apt-get install docker-ce
+
+
+# quick test to make sure all is set up:
+docker run hello-world
+
+# this should install and run rstuio in a docker 
+# reference
+https://ropenscilabs.github.io/r-docker-tutorial/02-Launching-Docker.html
+docker run --rm -p 8787:8787 rocker/verse
+
+# the procedure returnas this error
+ERROR: You must set a unique PASSWORD (not 'rstudio') first! e.g. run with:                                                                                                                                         
+
+# running the command as:
+docker run -e PASSWORD=<YOUR_PASS> -p 8787:8787 rocker/rstudio
+
+# will start the application 
+# usr rstudio 
+# pwd <YOUR_PASS>
+
+
