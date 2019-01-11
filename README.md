@@ -1,1 +1,2 @@
-i
+Repo of instuctions
+mainly setup
