@@ -102,8 +102,8 @@ References:
 - https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 
 List all image installed  `docker image ls`
-Remove an image `docker image rm <IMAGE ID>
-`
+Remove an image `docker image rm <IMAGE ID>`
+Force removin an image `docker  rmi -f  <IMAGE ID>` this is useful when an image is referred my multiple dockers
 
 list all dockers `docker container ls -a`
 stop a docker `docker stop <CONTAINER ID>`
@@ -140,6 +140,42 @@ docker run --rm -p 8787:8787
     -e PASSWORD=tre
    rocker/verse
 ```
+
+## Install minimal ubuntu 
+
+create a new dir: `mkdir test` and cd into it
+
+create a new file: `echo 'FROM ubuntu' | tee Dockerfile`
+
+build the docker `docker build -t test .` The docker will be named test. -t stands for --tag
+
+run the docker with `docker run --rm -it test /bin/bash`.
+
+- `--rm`: remove the  container after  shut down 
+- `-i` :Keep STDIN open even if not attached
+- `-t`  Allocate a pseudo-tty
+
+Note that when building the _test_ container, the _ubuntu_ container will built anyway 
+
+The size of the newly created container is 88.7 Mb
+
+in order to install something extra into the minimal, congigure dockerfile as:
+
+```
+FROM ubuntu
+RUN apt-get update && apt-get install -y vim
+```
+
+## Install minimal ubuntu with R  
+References: https://github.com/rocker-org/rocker/tree/master/r-base
+Same procedure as minimal ubuntu 
+Docker file in `r-base.dkr`
+
+
+
+
+
+
 
 
 
