@@ -36,7 +36,11 @@ delay <-  ontime %>%
 ontime_clean <-  ontime %>% 
   select(DepDelay,  ArrDelay) %>% 
   filter ( !is.na(DepDelay), 
-           !is.na(ArrDelay))
+           !is.na(ArrDelay)) %>% 
+  mutate(DepDelay = as.numeric(DepDelay), 
+         ArrDelay = as.numeric(ArrDelay))
+
+
 
 # linear regression
 fm <- ml_linear_regression(ontime_clean, formula = ArrDelay~DepDelay)

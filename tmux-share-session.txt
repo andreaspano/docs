@@ -1,0 +1,14 @@
+
+## How to share a tmux session on teh same machine between two users
+
+# Create a session named etabeta sharing the socket /tmp/etabeta
+# the socket must not exists prior creations
+
+tmux -S /tmp/etabeta new -s etabeta
+
+# share the connection between members of dev group
+chgrp dev  /tmp/etabeta 
+
+# a second user of group  dev can attach the shared session with:
+tmux -S /tmp/etabeta  attach -t etabeta
+
