@@ -3,6 +3,10 @@
 sudo adduser andrea
 sudo usermod -aG sudo andrea
 
+sudo adduser leone
+sudo usermod -aG sudo leone
+
+
 sudo apt-get  update 
 sudo apt-get -y upgrade
 sudo apt-get install -y vim 
@@ -47,7 +51,7 @@ sudo apt install -y r-base
 sudo apt install -y r-base-dev
 
 # upgrade to R 3.5 ... mah 
-sudo apt-get uodate
+sudo apt-get update
 sudo apt-get dist-upgrade
 
 # R packages
@@ -55,7 +59,6 @@ sudo apt-get dist-upgrade
 mkdir ~/R
 mkdir ~/R/x86_64-pc-linux-gnu-library/
 mkdir ~/R/x86_64-pc-linux-gnu-library/3.5
-
 
 
 
@@ -71,6 +74,13 @@ echo "install.packages('hts', lib=\"~/R/x86_64-pc-linux-gnu-library/3.5\"  ,repo
 echo "install.packages('zoo', lib=\"~/R/x86_64-pc-linux-gnu-library/3.5\"  ,repos=\"https://cran.rstudio.com\")" | R --no-save
 echo "install.packages('microbenchmark', lib=\"~/R/x86_64-pc-linux-gnu-library/3.5\"  ,repos=\"https://cran.rstudio.com\")" | R --no-save
 echo "install.packages('testthis', lib=\"~/R/x86_64-pc-linux-gnu-library/3.5\"  ,repos=\"https://cran.rstudio.com\")" | R --no-save
+
+
+devtools::install_github('tidyverts/fable')
+devtools::install_github('tidyverts/tsibble')
+devtools::install_github('tidyverts/fasster')
+devtools::install_github('tidyverts/tsibbledata')
+
 
 
 
@@ -100,6 +110,7 @@ ln -s ~/dev/dots/.vimrc .
 # R Studio ------------------------
 sudo apt-get install gdebi-core
 wget https://download2.rstudio.org/rstudio-server-1.1.463-amd64.deb
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.2.1335-amd64.deb
 sudo gdebi rstudio-server-1.1.463-amd64.deb
 
 
@@ -108,6 +119,7 @@ sudo gdebi rstudio-server-1.1.463-amd64.deb
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
 # add repo TODO add dist and version as variables
 sudo echo "deb http://apt.insynchq.com/ubuntu  bionic non-free contrib" | sudo tee  /etc/apt/sources.list.d/insync.list
+
 # install
 sudo apt-get update
 sudo apt-get install insync
@@ -116,10 +128,10 @@ sudo apt-get install insync
 # data dir
 sudo mkdir /mnt/data
 sudo ln -s /mnt/data /data
-addgroup  dev
+sudo addgroup  dev
 sudo usermod -aG dev  andrea
-sudo usermed -aG dev etabeta
-chgrp -R dev /data
-chmod -R 770 /data
+sudo usermod -aG dev leone
+sudo chgrp -R dev /data
+sudo chmod -R 770 /data
 
 
