@@ -1,0 +1,22 @@
+# frathub 
+an other package install manager 
+
+# Home
+https://flathub.org/home
+
+# install page
+https://flatpak.org/setup/Ubuntu/
+
+Install Flatpak
+sudo apt install flatpak
+           
+# install the Software Flatpak plugin
+sudo apt install gnome-software-plugin-flatpak
+
+# Add the Flathub repository
+ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# to install app with flatpack ... go to the flatpack page and follow instructions 
+
+
+
