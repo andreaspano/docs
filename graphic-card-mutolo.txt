@@ -1,0 +1,23 @@
+modprobe nvidia
+modprobe nvidiafb
+reboot
+sudo apt-get remove nvidia-current
+sudo apt-get install linux-headers-3.5.0-26-generic
+sudo apt-get install nvidia-current-updates
+
+
+(1)  First, detect the model of your nvidia graphic card and the recommended driver. To do so execute the following command. Please note that your output and recommended driver will most likely be different:
+
+ubuntu-drivers devices
+
+== /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
+modalias : pci:v000010DEd00000DE1sv000019DAsd00001167bc03sc00i00
+vendor   : NVIDIA Corporation
+model    : GF108 [GeForce GT 430]
+driver   : nvidia-340 - distro non-free
+driver   : nvidia-driver-390 - distro non-free recommended
+driver   : xserver-xorg-video-nouveau - distro free builtin
+
+sudo ubuntu-drivers autoinstall
+
+sudo rebbot
