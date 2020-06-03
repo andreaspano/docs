@@ -1,0 +1,30 @@
+Cofiguration for cisco vpn 
+Usually coem witk a pcf file
+
+(1) Install the vpnc client:
+$ apt-get install vpnc
+
+(2) Convert PCF file into a vpnc configuration file:
+$ pcf2vpnc profile%>%cf profile.conf
+
+(3) Start VPN connection using the generated configuration file:
+
+vpnc ./profile.conf
+
+It may return error as port 500 (default) is alterady in use.
+Check:
+
+$ netstat -tuvnlp 
+
+and try 
+
+$ vpnc --local-port=5100 ./profile.conf
+
+with user 
+
+$ vpnc --local-port=5100 --username=andspano ./fwvpn.conf
+
+
+
+(4) the VPN connection can be disconnected with this command:
+vpnc-disconnect

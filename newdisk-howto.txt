@@ -1,0 +1,2 @@
+Follow instruction at :
+https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0
