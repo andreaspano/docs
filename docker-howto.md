@@ -111,7 +111,9 @@ stop a docker `docker stop <CONTAINER ID>`
 remove a docker `docker rm <CONTAINER ID>`
 
 
+
 ## Install R and R-Studio Docker 
+
 
 reference: 
 
